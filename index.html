@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Company</title>
+    <script>
+        // Global JavaScript styles and functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Apply styles to entire document
+            document.body.style.margin = '0';
+            document.body.style.padding = '0';
+            document.body.style.fontFamily = 'Arial, sans-serif';
+            document.body.style.backgroundColor = '#f5f5f5';
+            document.body.style.color = '#333';
+            document.body.style.lineHeight = '1.6';
+
+            // Style all headings
+            const headings = document.querySelectorAll('h1, h2, h3');
+            headings.forEach(heading => {
+                heading.style.color = '#2c3e50';
+                heading.style.fontWeight = 'bold';
+            });
+
+            // all links
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.style.color = '#3498db';
+                link.style.textDecoration = 'none';
+                link.addEventListener('mouseover', function() {
+                    this.style.color = '#2980b9';
+                    this.style.textDecoration = 'underline';
+                });
+                link.addEventListener('mouseout', function() {
+                    this.style.color = '#3498db';
+                    this.style.textDecoration = 'none';
+                });
+            });
+
+            //  navigation
+            const nav = document.querySelector('nav');
+            if (nav) {
+                nav.style.backgroundColor = '#2c3e50';
+                nav.style.padding = '1rem';
+                nav.style.position = 'sticky';
+                nav.style.top = '0';
+                nav.style.zIndex = '100';
+                nav.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+                nav.style.display = 'flex';
+                nav.style.justifyContent = 'space-between';
+                nav.style.alignItems = 'center';
+                nav.style.flexWrap = 'wrap';
+            }
+
+            //  logo
+            const logo = document.querySelector('.logo');
+            if (logo) {
+                logo.style.fontSize = '1.5rem';
+                logo.style.fontWeight = 'bold';
+                logo.style.color = 'white';
+                logo.style.margin = '0';
+                logo.style.padding = '0';
+            }
+
+            //  Navigation
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks) {
+                navLinks.style.listStyle = 'none';
+                navLinks.style.display = 'flex';
+                navLinks.style.gap = '1.5rem';
+                navLinks.style.margin = '0';
+                navLinks.style.padding = '0';
+                
+                // Media Mobile responsiveness
+                if (window.innerWidth <= 768) {
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.width = '100%';
+                    navLinks.style.textAlign = 'center';
+                    navLinks.style.marginTop = '1rem';
+                }
+            }
+
+            // nav links
+            const navLinkItems = document.querySelectorAll('.nav-links li a');
+            navLinkItems.forEach(link => {
+                link.style.color = 'white';
+                link.style.textDecoration = 'none';
+                link.style.transition = 'all 0.3s ease';
+                link.addEventListener('mouseover', function() {
+                    this.style.color = '#3498db';
+                });
+                link.addEventListener('mouseout', function() {
+                    this.style.color = 'white';
+                });
+            });
+
+            // main container
+            const main = document.querySelector('main');
+            if (main) {
+                main.style.maxWidth = '1200px';
+                main.style.margin = '0 auto';
+                main.style.padding = '2rem';
+            }
+
+            // sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.marginBottom = '2rem';
+                section.style.background = 'white';
+                section.style.borderRadius = '8px';
+                section.style.padding = '1.5rem';
+                section.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+            });
+
+            // forms
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.style.display = 'flex';
+                form.style.flexDirection = 'column';
+                form.style.gap = '1rem';
+            });
+
+            // form inputs
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.style.padding = '0.75rem';
+                input.style.borderRadius = '4px';
+                input.style.border = '1px solid #ddd';
+                input.style.fontSize = '1rem';
+                input.style.width = '100%';
+                input.style.boxSizing = 'border-box';
+                input.addEventListener('focus', function() {
+                    this.style.borderColor = '#3498db';
+                    this.style.outline = 'none';
+                });
+                input.addEventListener('blur', function() {
+                    this.style.borderColor = '#ddd';
+                });
+            });
+
+            // buttons
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.style.padding = '0.75rem 1.5rem';
+                button.style.borderRadius = '4px';
+                button.style.border = 'none';
+                button.style.backgroundColor = '#3498db';
+                button.style.color = 'white';
+                button.style.cursor = 'pointer';
+                button.style.fontSize = '1rem';
+                button.style.fontWeight = 'bold';
+                button.style.transition = 'all 0.3s ease';
+                button.addEventListener('mouseover', function() {
+                    this.style.backgroundColor = '#2980b9';
+                });
+                button.addEventListener('mouseout', function() {
+                    this.style.backgroundColor = '#3498db';
+                });
+            });
+
+            // footer
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.style.backgroundColor = '#2c3e50';
+                footer.style.color = 'white';
+                footer.style.textAlign = 'center';
+                footer.style.padding = '1.5rem';
+                footer.style.marginTop = '2rem';
+            }
+
+            // Handle mobile menu 
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (menuToggle) {
+                menuToggle.style.display = 'none';
+                menuToggle.style.backgroundColor = 'transparent';
+                menuToggle.style.border = 'none';
+                menuToggle.style.color = 'white';
+                menuToggle.style.fontSize = '1.5rem';
+                menuToggle.style.cursor = 'pointer';
+                
+                // Show menu toggle on mobile
+                if (window.innerWidth <= 768) {
+                    menuToggle.style.display = 'block';
+                    navLinks.style.display = 'none';
+                }
+                
+                // Toggle menu visibility
+                menuToggle.addEventListener('click', function() {
+                    if (navLinks.style.display === 'none') {
+                        navLinks.style.display = 'flex';
+                    } else {
+                        navLinks.style.display = 'none';
+                    }
+                });
+            }
+
+            //Responsive behavior
+            window.addEventListener('resize', function() {
+                if (window.innerWidth <= 768) {
+                    if (menuToggle) menuToggle.style.display = 'block';
+                    if (navLinks) {
+                        navLinks.style.flexDirection = 'column';
+                        navLinks.style.width = '100%';
+                        navLinks.style.textAlign = 'center';
+                        navLinks.style.marginTop = '1rem';
+                        // Only hide if menu is not active
+                        if (!navLinks.classList.contains('active')) {
+                            navLinks.style.display = 'none';
+                        }
+                    }
+                } else {
+                    if (menuToggle) menuToggle.style.display = 'none';
+                    if (navLinks) {
+                        navLinks.style.display = 'flex';
+                        navLinks.style.flexDirection = 'row';
+                        navLinks.style.width = 'auto';
+                        navLinks.style.marginTop = '0';
+                    }
+                }
+            });
+
+            // Handle navigation
+            function showPage(pageId) {
+                //All pages
+                const pages = document.querySelectorAll('.page');
+                pages.forEach(page => {
+                    page.style.display = 'none';
+                });
+                
+                //Selected page
+                const selectedPage = document.getElementById(pageId);
+                if (selectedPage) {
+                    selectedPage.style.display = 'block';
+                }
+                
+                // Close mobile menu 
+                if (window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
+                }
+                
+                //Active link
+                const navLinksItems = document.querySelectorAll('.nav-links li a');
+                navLinksItems.forEach(link => {
+                    if (link.getAttribute('data-page') === pageId) {
+                        link.style.borderBottom = '2px solid #3498db';
+                    } else {
+                        link.style.borderBottom = 'none';
+                    }
+                });
+            }
+
+            // Add click handlers to nav links
+            const pageLinks = document.querySelectorAll('[data-page]');
+            pageLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    showPage(pageId);
+                });
+            });
+
+            // Show home page by default
+            showPage('home-page');
+        });
+
+        // Form validation functions
+        function validateLoginForm() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            if (!email || !validateEmail(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+            
+            if (!password || password.length < 6) {
+                alert('Password must be at least 6 characters long.');
+                return false;
+            }
+            
+            alert('Login successful!');
+            return false; 
+        }
+        
+        function validateSignupForm() {
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('signup-confirm-password').value;
+            
+            if (!name || name.length < 2) {
+                alert('Please enter your full name.');
+                return false;
+            }
+            
+            if (!email || !validateEmail(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+            
+            if (!password || password.length < 6) {
+                alert('Password must be at least 6 characters long.');
+                return false;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return false;
+            }
+            
+            alert('Sign up successful!');
+            return false;
+        }
+        
+        function validateContactForm() {
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const message = document.getElementById('contact-message').value;
+            
+            if (!name || name.length < 2) {
+                alert('Please enter your name.');
+                return false;
+            }
+            
+            if (!email || !validateEmail(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+            
+            if (!message || message.length < 10) {
+                alert('Please enter a message with at least 10 characters.');
+                return false;
+            }
+            
+            alert('Thank you for your message! We will get back to you soon.');
+            return false;
+        }
+        
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 class="logo">ModernTech</h1>
+            <button class="menu-toggle">☰</button>
+            <ul class="nav-links">
+                <li><a href="#" data-page="home-page">Home</a></li>
+                <li><a href="#" data-page="about-page">About Us</a></li>
+                <li><a href="#" data-page="signup-page">Sign Up</a></li>
+                <li><a href="#" data-page="login-page">Log In</a></li>
+                <li><a href="#" data-page="contact-page">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Page -->
+        <div class="page" id="home-page">
+            <section>
+                <h2>Welcome to ModernTech</h2>
+                <p>We create innovative solutions for your business needs. Our dedicated team of professionals is committed to delivering excellence in every project.</p>
+            <center>
+                <img src="/itwprojecct/image/image.jpg" height="400px" width="1100px"  alt="">
+            </center>
+               
+                
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <h3>Innovation</h3>
+                        <p>We bring cutting-edge solutions to help your business grow and succeed in the digital age.</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px;">
+                        <h3>Reliability</h3>
+                        <p>Our products are built with quality and reliability in mind, ensuring consistent performance.</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px;">
+                        <h3>Support</h3>
+                        <p>We provide 24/7 customer support to assist you with any questions or issues.</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                   
+                </div>
+            </section>
+
+            <section>
+                <h2>Our Services</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="flex: 1; min-width: 250px; padding: 15px; background-color: #f9f9f9; border-radius: 8px;">
+                        <h3>Web Development</h3>
+                        <p>Custom websites tailored to your specific business needs and goals.</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; padding: 15px; background-color: #f9f9f9; border-radius: 8px;">
+                        <h3>Mobile Apps</h3>
+                        <p>Native and cross-platform mobile applications with intuitive interfaces.</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; padding: 15px; background-color: #f9f9f9; border-radius: 8px;">
+                        <h3>Cloud Solutions</h3>
+                        <p>Scalable cloud infrastructure to support your growing business needs.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Us Page -->
+        <div class="page" id="about-page" style="display: none;">
+            <section>
+                <h2>About ModernTech</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+                    <div style="flex: 1; min-width: 300px;">
+
+                        <img src="/itwprojecct/image/brandlogo.jpg" height="200px" width="400px" alt="">
+
+                    </div>
+                    <div style="flex: 2; min-width: 300px;">
+                        <h3>Our Story</h3>
+                        <p>Founded in 2015, ModernTech has grown from a small startup to a leading technology company. Our journey began with a simple mission: to make technology accessible and useful for businesses of all sizes.</p>
+                        <p>Today, we're proud to serve clients across the globe, helping them navigate the complex digital landscape and achieve their business goals through innovative technology solutions.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+                <h2>Our Values</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="flex: 1; min-width: 250px; padding: 15px; background-color: #f9f9f9; border-radius: 8px;">
+                        <h3>Innovation</h3>
+                        <p>We constantly seek new and better ways to solve problems and create value.</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; padding: 15px; background-color: #f9f9f9; border-radius: 8px;">
+                        <h3>Integrity</h3>
+                        <p>We believe in honesty, transparency, and doing what's right for our clients.</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; padding: 15px; background-color: #f9f9f9; border-radius: 8px;">
+                        <h3>Excellence</h3>
+                        <p>We strive for excellence in everything we do, from code quality to customer service.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Sign Up Page -->
+        <div class="page" id="signup-page" style="display: none;">
+            <section>
+                <h2>Create an Account</h2>
+                <p>Join our community to access exclusive features and services.</p>
+                <form onsubmit="return validateSignupForm()">
+                    <div>
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div>
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                    <div>
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" placeholder="Create a password" required>
+                    </div>
+                    <div>
+                        <label for="signup-confirm-password">Confirm Password</label>
+                        <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required>
+                    </div>
+                    <div>
+                        <button type="submit">Sign Up</button>
+                    </div>
+                </form>
+                <div style="margin-top: 20px; text-align: center;">
+                    <p>Already have an account? <a href="#" data-page="login-page">Log In</a></p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Login Page -->
+        <div class="page" id="login-page" style="display: none;">
+            <section>
+                <h2>Log In to Your Account</h2>
+                <p>Access your dashboard and manage your services.</p>
+                <form onsubmit="return validateLoginForm()">
+                    <div>
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" placeholder="Enter your email" required>
+                    </div>
+                    <div>
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    <div>
+                        <button type="submit">Log In</button>
+                    </div>
+                </form>
+                <div style="margin-top: 20px; text-align: center;">
+                    <p>Don't have an account? <a href="#" data-page="signup-page">Sign Up</a></p>
+                    <p><a href="#">Forgot your password?</a></p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div class="page" id="contact-page" style="display: none;">
+            <section>
+                <h2>Contact Us</h2>
+                <p>Have questions or need assistance? Reach out to our team.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <form onsubmit="return validateContactForm()">
+                            <div>
+                                <label for="contact-name">Your Name</label>
+                                <input type="text" id="contact-name" placeholder="Enter your name" required>
+                            </div>
+                            <div>
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" placeholder="Enter your email" required>
+                            </div>
+                            <div>
+                                <label for="contact-subject">Subject</label>
+                                <input type="text" id="contact-subject" placeholder="Enter subject">
+                            </div>
+                            <div>
+                                <label for="contact-message">Message</label>
+                                <textarea id="contact-message" placeholder="Enter your message" rows="5" required></textarea>
+                            </div>
+                            <div>
+                                <button type="submit">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div style="flex: 1; min-width: 300px;">
+                        <h3>Company Information</h3>
+                        <p><strong>Address:</strong> 123 Tech Street, Innovation City, 12345</p>
+                        <p><strong>Email:</strong> info@moderntech.com</p>
+                        <p><strong>Phone:</strong> +91 000000000</p>
+                        <p><strong>Hours:</strong> Monday to Friday, 9:00 AM - 5:00 PM</p>
+                        
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <p>&copy; 2025 ModernTech. All rights reserved.</p>
+            <div style="margin-top: 10px;">
+                <a href="#" style="margin: 0 10px;">Privacy Policy</a>
+                <a href="#" style="margin: 0 10px;">Terms of Service</a>
+                <a href="#" style="margin: 0 10px;">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Additional script
+        const textareas = document.querySelectorAll('textarea');
+        textareas.forEach(textarea => {
+            textarea.style.padding = '0.75rem';
+            textarea.style.borderRadius = '4px';
+            textarea.style.border = '1px solid #ddd';
+            textarea.style.width = '100%'; 
+            textarea.style.fontSize = '1rem';
+            textarea.style.fontFamily = 'Arial, sans-serif';
+            textarea.style.resize = 'vertical';
+            textarea.style.minHeight = '100px';
+            textarea.style.boxSizing = 'border-box';
+            textarea.addEventListener('focus', function() {
+                this.style.borderColor = '#3498db';
+                this.style.outline = 'none';
+            });
+            textarea.addEventListener('blur', function() {
+                this.style.borderColor = '#ddd';
+            });
+        });
+
+        //label styling
+        const labels = document.querySelectorAll('label');
+        labels.forEach(label => {
+            label.style.fontWeight = 'bold';
+            label.style.marginBottom = '0.25rem';
+            label.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
